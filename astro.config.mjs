@@ -24,6 +24,53 @@ export default defineConfig({
         baseUrl: 'https://github.com/CarlJia/monitor-docs/edit/main/',
       },
       customCss: ['./src/styles/custom.css'],
+      sidebar: [
+        {
+          label: '认识',
+          items: [
+            { label: '这是什么', slug: 'start/what-is' },
+            { label: '架构总览', slug: 'start/architecture' },
+          ],
+        },
+        {
+          label: '安装部署',
+          items: [
+            { label: '安装 Hub', slug: 'install/hub' },
+            { label: '反向代理', slug: 'install/reverse-proxy' },
+            { label: '接入 Agent', slug: 'install/agent' },
+            { label: 'Docker 部署', slug: 'install/docker' },
+            { label: '升级 / 卸载 / 迁移', slug: 'install/lifecycle' },
+          ],
+        },
+        {
+          label: '运维',
+          items: [
+            { label: '登录与安全', slug: 'operate/auth' },
+            { label: '通知', slug: 'operate/notify' },
+            { label: '主题安装与切换', slug: 'operate/themes' },
+          ],
+        },
+        {
+          label: '扩展开发',
+          items: [
+            { label: '插件系统总览', slug: 'extend/plugins' },
+            { label: 'plugin.toml（manifest）', slug: 'extend/plugin-manifest' },
+            { label: 'ABI v2 契约', slug: 'extend/plugin-abi' },
+            { label: '面板页面协议', slug: 'extend/plugin-panel' },
+            { label: '资源限制', slug: 'extend/plugin-limits' },
+            { label: '上传与生命周期', slug: 'extend/plugin-lifecycle' },
+            { label: '已知约束', slug: 'extend/plugin-caveats' },
+            { label: '主题开发', slug: 'extend/theme-dev' },
+          ],
+        },
+        {
+          label: '参考',
+          items: [
+            { label: '常见问题', slug: 'reference/faq' },
+            { label: '更新日志', slug: 'reference/changelog' },
+          ],
+        },
+      ],
       head: [
         {
           tag: 'script',
