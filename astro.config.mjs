@@ -4,6 +4,16 @@ import starlight from '@astrojs/starlight';
 
 export default defineConfig({
   site: 'https://sink.dpdns.org',
+  // 「设计框架」板块抽出后，旧路径静态重定向到新位置，避免已发布链接落 404。
+  redirects: {
+    '/start/architecture/': '/design/architecture/',
+    '/extend/plugin-manifest/': '/design/plugin-manifest/',
+    '/extend/plugin-abi/': '/design/plugin-abi/',
+    '/extend/plugin-panel/': '/design/plugin-panel/',
+    '/extend/plugin-limits/': '/design/plugin-limits/',
+    '/extend/plugin-lifecycle/': '/design/plugin-lifecycle/',
+    '/extend/plugin-caveats/': '/design/plugin-caveats/',
+  },
   integrations: [
     starlight({
       title: 'Monitor 文档',
@@ -28,7 +38,6 @@ export default defineConfig({
           label: '认识',
           items: [
             { label: '这是什么', slug: 'start/what-is' },
-            { label: '架构总览', slug: 'start/architecture' },
           ],
         },
         {
@@ -50,15 +59,21 @@ export default defineConfig({
           ],
         },
         {
+          label: '设计框架',
+          items: [
+            { label: '架构总览', slug: 'design/architecture' },
+            { label: 'plugin.toml（manifest）', slug: 'design/plugin-manifest' },
+            { label: 'ABI v2 契约', slug: 'design/plugin-abi' },
+            { label: '面板页面协议', slug: 'design/plugin-panel' },
+            { label: '资源限制', slug: 'design/plugin-limits' },
+            { label: '上传与生命周期', slug: 'design/plugin-lifecycle' },
+            { label: '已知约束', slug: 'design/plugin-caveats' },
+          ],
+        },
+        {
           label: '扩展开发',
           items: [
             { label: '插件系统总览', slug: 'extend/plugins' },
-            { label: 'plugin.toml（manifest）', slug: 'extend/plugin-manifest' },
-            { label: 'ABI v2 契约', slug: 'extend/plugin-abi' },
-            { label: '面板页面协议', slug: 'extend/plugin-panel' },
-            { label: '资源限制', slug: 'extend/plugin-limits' },
-            { label: '上传与生命周期', slug: 'extend/plugin-lifecycle' },
-            { label: '已知约束', slug: 'extend/plugin-caveats' },
             { label: '主题开发', slug: 'extend/theme-dev' },
           ],
         },

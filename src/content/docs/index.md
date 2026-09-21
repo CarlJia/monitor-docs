@@ -64,7 +64,7 @@ curl -fsSL https://your-hub/install.sh | sh -s -- --server https://your-hub --re
 ## 想了解细节
 
 - [这是什么](/start/what-is/) —— 这个项目解决什么问题
-- [架构总览](/start/architecture/) —— agent、hub 与插件怎么协作
+- [架构总览](/design/architecture/) —— agent、hub 与插件怎么协作
 - [安装 Hub](/install/hub/) —— 脚本参数、目录结构、应急密码
 - [反向代理](/install/reverse-proxy/) —— 让 Hub 可以从公网访问
 - [接入 Agent](/install/agent/) —— 单台 / 批量安装、换发 token、卸载
