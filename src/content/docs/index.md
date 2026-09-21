@@ -3,26 +3,71 @@ title: 自托管服务器监控
 description: monitor 二开版的安装、部署、架构与插件开发文档。
 template: splash
 hero:
-  tagline: monitor 二开版：自托管监控 + WASM 插件系统。
+  tagline: 装好主控 Hub，接上 Agent，就能在一个面板里看到所有机器。
   actions:
+    - text: 快速开始
+      link: /monitor-docs/#快速开始
+      icon: right-arrow
+      variant: primary
     - text: 安装 Hub
       link: /monitor-docs/install/hub/
       icon: right-arrow
-      variant: primary
     - text: 接入 Agent
       link: /monitor-docs/install/agent/
       icon: right-arrow
-    - text: 插件开发
-      link: /monitor-docs/extend/plugins/
-      icon: right-arrow
 ---
 
-## 这套东西怎么运转
+## 快速开始
 
-agent 跑在每台被监控的机器上，采集 CPU、内存、磁盘、网络等指标，经 WebSocket 实时推给 hub；hub 用 axum + SQLite 存下来，再通过只读接口喂给后台和状态页。
+整个系统只有两个角色：**Hub**（主控端，装一台）和 **Agent**（装在每台被监控的机器上）。先把 Hub 跑起来，再挨台接 Agent。
 
+### 第一步：安装主控 Hub
+
+挑一台机器做主控端，执行一键脚本：
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/CarlJia/monitor/main/install-hub.sh -o install-hub.sh
+chmod +x install-hub.sh
+sudo ./install-hub.sh
 ```
-agent (Linux)  ──WebSocket / JSON-RPC 2.0──▶  hub (axum + SQLite)  ──▶  后台 + 状态页 / 主题
+
+脚本会校验并安装二进制、注册 systemd 服务，结束时打印面板地址和一次性应急密码（只显示一次，请记下）。
+
+也可以用 Docker 跑：
+
+```bash
+docker run -d --name monitor-hub \
+  -p 127.0.0.1:28080:28080 \
+  -e TZ=Asia/Shanghai \
+  -v /opt/monitor/data:/data \
+  ghcr.io/CarlJia/monitor
 ```
 
-本项目是上游 monitor 的二开，最主要的增量是 **WASM 插件系统**——通知、财务统计都是沙箱插件，而不是写死在 hub 里。想了解全貌，从[这是什么](/monitor-docs/start/what-is/)与[架构总览](/monitor-docs/start/architecture/)开始。
+Hub 默认只监听本机，公网访问要在它前面配一层反向代理。参数细节见[安装 Hub](/monitor-docs/install/hub/)，容器要点见 [Docker 部署](/monitor-docs/install/docker/)，公网访问见[反向代理](/monitor-docs/install/reverse-proxy/)。
+
+### 第二步：接入 Agent
+
+登录面板，添加节点，复制面板生成的命令，到目标机器上执行：
+
+```bash
+curl -fsSL https://your-hub/install.sh | sh -s -- --server https://your-hub --token <token>
+```
+
+要一次给一批机器装，用注册 key 代替逐台复制 token：
+
+```bash
+curl -fsSL https://your-hub/install.sh | sh -s -- --server https://your-hub --register <key>
+```
+
+重跑同一条命令不会重复注册；参数与卸载方式见[接入 Agent](/monitor-docs/install/agent/)。
+
+## 想了解细节
+
+- [这是什么](/monitor-docs/start/what-is/) —— 这个项目解决什么问题
+- [架构总览](/monitor-docs/start/architecture/) —— agent、hub 与插件怎么协作
+- [安装 Hub](/monitor-docs/install/hub/) —— 脚本参数、目录结构、应急密码
+- [反向代理](/monitor-docs/install/reverse-proxy/) —— 让 Hub 可以从公网访问
+- [接入 Agent](/monitor-docs/install/agent/) —— 单台 / 批量安装、换发 token、卸载
+- [Docker 部署](/monitor-docs/install/docker/) —— 镜像、时区与数据卷
+- [升级 / 卸载 / 迁移](/monitor-docs/install/lifecycle/) —— 日常维护
+- [插件系统总览](/monitor-docs/extend/plugins/) —— 通知、财务统计都是沙箱插件
