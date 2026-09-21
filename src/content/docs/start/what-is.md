@@ -27,9 +27,9 @@ monitor 是一套**轻量、自托管的服务器监控**：agent 采集每台�
 
 ## 从哪开始
 
-- 想尽快跑起来 → [安装 Hub](/monitor-docs/install/hub/)
-- 想接入一台机器 → [接入 Agent](/monitor-docs/install/agent/)
-- 想写自己的插件 → [插件系统总览](/monitor-docs/extend/plugins/)
+- 想尽快跑起来 → [安装 Hub](/install/hub/)
+- 想接入一台机器 → [接入 Agent](/install/agent/)
+- 想写自己的插件 → [插件系统总览](/extend/plugins/)
 
 ## 原文链接
 

@@ -15,7 +15,7 @@ sudo ./install-hub.sh
 
 脚本会：核对 release 的 `sha256sums.txt` 后才把二进制放进 `/opt/monitor`，建一个 `monitor` 系统用户，写一个加固过的 systemd 单元，最后打印三种反向代理配法。
 
-**重跑一次就是升级**：校验通过才替换二进制，起不来自动回滚到上一版；没写的参数沿用上次的，所以升级不会把端口和 `--site` 冲掉。详见[升级与卸载](/monitor-docs/install/lifecycle/)。
+**重跑一次就是升级**：校验通过才替换二进制，起不来自动回滚到上一版；没写的参数沿用上次的，所以升级不会把端口和 `--site` 冲掉。详见[升级与卸载](/install/lifecycle/)。
 
 ### 参数
 
@@ -54,7 +54,7 @@ journalctl -u monitor-hub | grep Emergency
 
 ## hub 只监听本机
 
-hub 绑定 `127.0.0.1`，公网访问不到——这是故意的，凭证不会在链路上裸奔，也没有端口要防火墙。要从公网访问，得配一层反向代理：见[反向代理](/monitor-docs/install/reverse-proxy/)。
+hub 绑定 `127.0.0.1`，公网访问不到——这是故意的，凭证不会在链路上裸奔，也没有端口要防火墙。要从公网访问，得配一层反向代理：见[反向代理](/install/reverse-proxy/)。
 
 ### 什么时候要 `--site`
 

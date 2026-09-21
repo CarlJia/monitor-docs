@@ -35,12 +35,12 @@ ABI v1（`abi_version = 1`）已停用，仅 v2——已安装的 v1 插件**不
 
 ## 往下读
 
-- [plugin.toml（manifest）](/monitor-docs/extend/plugin-manifest/) — 字段与校验规则
-- [ABI v2 契约](/monitor-docs/extend/plugin-abi/) — 导出、宿主函数、错误码
-- [面板页面协议](/monitor-docs/extend/plugin-panel/) — 在面板里画 UI
-- [资源限制](/monitor-docs/extend/plugin-limits/) — fuel、墙钟、存储上限
-- [上传与生命周期](/monitor-docs/extend/plugin-lifecycle/) — 从打包到日志
-- [已知约束](/monitor-docs/extend/plugin-caveats/) — 上线前必看
+- [plugin.toml（manifest）](/extend/plugin-manifest/) — 字段与校验规则
+- [ABI v2 契约](/extend/plugin-abi/) — 导出、宿主函数、错误码
+- [面板页面协议](/extend/plugin-panel/) — 在面板里画 UI
+- [资源限制](/extend/plugin-limits/) — fuel、墙钟、存储上限
+- [上传与生命周期](/extend/plugin-lifecycle/) — 从打包到日志
+- [已知约束](/extend/plugin-caveats/) — 上线前必看
 
 ## 原文链接
 

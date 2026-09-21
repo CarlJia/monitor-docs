@@ -8,12 +8,13 @@ monitor 二开版的文档站：安装、部署、架构、运维与插件开发
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321/monitor-docs/
+npm run dev      # http://localhost:4321/
 npm run build    # 产出 dist/
 npm run preview
 ```
 
-注意站点的 `base` 是 `/monitor-docs`，本地预览也带这个前缀。
+站点通过自定义域名 `sink.dpdns.org` 从根路径提供服务，`base` 已移除，
+本地预览不带前缀。
 
 ## 部署
 
@@ -22,7 +23,7 @@ npm run preview
 **首次需要一次手动设置**：仓库 Settings → Pages → Source 选择 **GitHub Actions**。
 不设这一步，workflow 会在 deploy 阶段报找不到 Pages 站点。
 
-站点地址：https://carljia.github.io/monitor-docs/
+站点地址：https://sink.dpdns.org/
 
 ## 内容结构
 
