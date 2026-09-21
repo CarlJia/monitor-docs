@@ -15,7 +15,7 @@ journalctl -u monitor-hub | grep Emergency
 
 ## hub 只在本机
 
-面板监听 `127.0.0.1`，公网访问不到——凭证不会在链路上裸奔。对外访问一律经[反向代理](/monitor-docs/install/reverse-proxy/)，由反代终止 TLS。
+面板监听 `127.0.0.1`，公网访问不到——凭证不会在链路上裸奔。对外访问一律经[反向代理](/install/reverse-proxy/)，由反代终止 TLS。
 
 ## 登录不通时
 

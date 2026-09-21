@@ -13,7 +13,7 @@ docker run -d --name monitor-hub \
   ghcr.io/CarlJia/monitor
 ```
 
-和裸机安装一样，hub 只该从本机访问，公网访问仍要在容器前面配一层[反向代理](/monitor-docs/install/reverse-proxy/)。
+和裸机安装一样，hub 只该从本机访问，公网访问仍要在容器前面配一层[反向代理](/install/reverse-proxy/)。
 
 ## 两个必须注意
 

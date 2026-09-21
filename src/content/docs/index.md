@@ -6,14 +6,14 @@ hero:
   tagline: 装好主控 Hub，接上 Agent，就能在一个面板里看到所有机器。
   actions:
     - text: 快速开始
-      link: /monitor-docs/#快速开始
+      link: /#快速开始
       icon: right-arrow
       variant: primary
     - text: 安装 Hub
-      link: /monitor-docs/install/hub/
+      link: /install/hub/
       icon: right-arrow
     - text: 接入 Agent
-      link: /monitor-docs/install/agent/
+      link: /install/agent/
       icon: right-arrow
 ---
 
@@ -43,7 +43,7 @@ docker run -d --name monitor-hub \
   ghcr.io/CarlJia/monitor
 ```
 
-Hub 默认只监听本机，公网访问要在它前面配一层反向代理。参数细节见[安装 Hub](/monitor-docs/install/hub/)，容器要点见 [Docker 部署](/monitor-docs/install/docker/)，公网访问见[反向代理](/monitor-docs/install/reverse-proxy/)。
+Hub 默认只监听本机，公网访问要在它前面配一层反向代理。参数细节见[安装 Hub](/install/hub/)，容器要点见 [Docker 部署](/install/docker/)，公网访问见[反向代理](/install/reverse-proxy/)。
 
 ### 第二步：接入 Agent
 
@@ -59,15 +59,15 @@ curl -fsSL https://your-hub/install.sh | sh -s -- --server https://your-hub --to
 curl -fsSL https://your-hub/install.sh | sh -s -- --server https://your-hub --register <key>
 ```
 
-重跑同一条命令不会重复注册；参数与卸载方式见[接入 Agent](/monitor-docs/install/agent/)。
+重跑同一条命令不会重复注册；参数与卸载方式见[接入 Agent](/install/agent/)。
 
 ## 想了解细节
 
-- [这是什么](/monitor-docs/start/what-is/) —— 这个项目解决什么问题
-- [架构总览](/monitor-docs/start/architecture/) —— agent、hub 与插件怎么协作
-- [安装 Hub](/monitor-docs/install/hub/) —— 脚本参数、目录结构、应急密码
-- [反向代理](/monitor-docs/install/reverse-proxy/) —— 让 Hub 可以从公网访问
-- [接入 Agent](/monitor-docs/install/agent/) —— 单台 / 批量安装、换发 token、卸载
-- [Docker 部署](/monitor-docs/install/docker/) —— 镜像、时区与数据卷
-- [升级 / 卸载 / 迁移](/monitor-docs/install/lifecycle/) —— 日常维护
-- [插件系统总览](/monitor-docs/extend/plugins/) —— 通知、财务统计都是沙箱插件
+- [这是什么](/start/what-is/) —— 这个项目解决什么问题
+- [架构总览](/start/architecture/) —— agent、hub 与插件怎么协作
+- [安装 Hub](/install/hub/) —— 脚本参数、目录结构、应急密码
+- [反向代理](/install/reverse-proxy/) —— 让 Hub 可以从公网访问
+- [接入 Agent](/install/agent/) —— 单台 / 批量安装、换发 token、卸载
+- [Docker 部署](/install/docker/) —— 镜像、时区与数据卷
+- [升级 / 卸载 / 迁移](/install/lifecycle/) —— 日常维护
+- [插件系统总览](/extend/plugins/) —— 通知、财务统计都是沙箱插件
