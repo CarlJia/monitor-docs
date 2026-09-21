@@ -22,7 +22,7 @@ hub 自身只产生两种事件：
 
 ## 配置渠道
 
-渠道配置（bot token 等）不打进 wasm，而是在插件 manifest 里用 `[[kv]]` 声明字段，值写在面板的插件 KV 编辑器里，插件运行时用 `host_kv_get` 读取。详见[面板页面协议](/extend/plugin-panel/)与[资源限制](/extend/plugin-limits/)。
+渠道配置（bot token 等）不打进 wasm，而是在插件 manifest 里用 `[[kv]]` 声明字段，值写在面板的插件 KV 编辑器里，插件运行时用 `host_kv_get` 读取。详见[面板页面协议](/design/plugin-panel/)与[资源限制](/design/plugin-limits/)。
 
 ## 原文链接
 
