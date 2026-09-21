@@ -3,8 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
 export default defineConfig({
-  site: 'https://carljia.github.io',
-  base: '/monitor-docs',
+  site: 'https://sink.dpdns.org',
   integrations: [
     starlight({
       title: 'Monitor 文档',
