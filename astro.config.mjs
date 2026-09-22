@@ -4,16 +4,6 @@ import starlight from '@astrojs/starlight';
 
 export default defineConfig({
   site: 'https://sink.dpdns.org',
-  // 「设计框架」板块抽出后，旧路径静态重定向到新位置，避免已发布链接落 404。
-  redirects: {
-    '/start/architecture/': '/design/architecture/',
-    '/extend/plugin-manifest/': '/design/plugin-manifest/',
-    '/extend/plugin-abi/': '/design/plugin-abi/',
-    '/extend/plugin-panel/': '/design/plugin-panel/',
-    '/extend/plugin-limits/': '/design/plugin-limits/',
-    '/extend/plugin-lifecycle/': '/design/plugin-lifecycle/',
-    '/extend/plugin-caveats/': '/design/plugin-caveats/',
-  },
   integrations: [
     starlight({
       title: 'Monitor 文档',
